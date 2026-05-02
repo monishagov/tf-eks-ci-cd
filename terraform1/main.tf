@@ -1,7 +1,3 @@
-provider "aws" {
-  region = "eu-north-1"
-}
-
 resource "aws_security_group" "sg" {
   name = "capstone-sg"
 
@@ -32,8 +28,4 @@ resource "aws_instance" "ec2" {
   tags = {
     Name = "Capstone-App"
   }
-}
-
-output "public_ip" {
-  value = aws_instance.ec2.public_ip
 }
