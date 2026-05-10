@@ -2,8 +2,8 @@ resource "aws_security_group" "sg" {
   name = "capstone-sg"
 
   ingress {
-    from_port   = 8080
-    to_port     = 8080
+    from_port   = 3000
+    to_port     = 3000
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
@@ -22,7 +22,7 @@ resource "aws_instance" "ec2" {
               apt install docker.io -y
               systemctl start docker
 
-              docker run -d -p 8080:8080 monishashuba/abc_tech:$BUILD_NUMBER
+              docker run -d -p 3000:3000 monishashuba/abc_tech:$BUILD_NUMBER
               EOF
 
   tags = {
